@@ -2,34 +2,29 @@ package Simulador_Testes;
 
 import Facebook_BD.Facebook_Database;
 import Tipo_Divulgacao.Postagem;
+import Tipo_Perfil.Perfil_Empresa;
 import Tipo_Perfil.Perfil_Usuario;
 import Tipo_Usuarios.Amizade;
+import Tipo_Usuarios.Empresa;
 import Tipo_Usuarios.Usuario;
 
 public class Testes_Gerais {
 	
 	public static void main(String[] args) {
 		
-		Perfil_Usuario perfil = new Perfil_Usuario
-				("Carlos", "Rodriguez", "25", "28/04/2015", "Masculino");
+		Facebook_Database face_bd = new Facebook_Database();
 		
-		Perfil_Usuario perfil_amigo = new Perfil_Usuario
-				("Carol", "Rodriguez", "25", "28/04/2015", "Masculino");
+		Empresa empresa = new Empresa();
+		Perfil_Empresa perfil = new Perfil_Empresa("Supermercon", "Comércio", "Eu");
+		empresa.perfil = perfil;
+		face_bd.Adicionar_Empresa(empresa);
+		empresa.Montar_Propaganda("A chave para um tempo melhor gasto!", 
+				"Anúncio", "Em breve, site", 2.55, face_bd);
 		
-		Usuario user = new Usuario();
-		user.perfil = perfil;
+		System.out.println("Valor atual no banco do Face: " + face_bd.getBanco_financeiro());
+		face_bd.Pesquisar_no_Facebook("mer");
+		face_bd.Pesquisar_no_Facebook("em");
 		
-		Usuario user_amigo = new Usuario();
-		user_amigo.perfil = perfil_amigo;
-		
-		Amizade amigo = new Amizade();
-		amigo.usuario = user_amigo;
-		
-		
-		user.Solicitar_Amizade(user, amigo);
-		System.out.println
-		("Amigos na minha Yuujinchou atual: " + user.lista_amigos.get(0).usuario.perfil.getNome());
 		
 	}
-
 }

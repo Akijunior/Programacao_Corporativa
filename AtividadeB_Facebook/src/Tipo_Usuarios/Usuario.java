@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import Facebook_BD.Facebook_Database;
 import Tipo_Divulgacao.Postagem;
 import Tipo_Grupo.Participacao;
 import Tipo_Likes.Tipos_de_Likes;
@@ -20,6 +21,14 @@ public class Usuario {
 	public ArrayList<Participacao> lista_participacoes = new ArrayList<Participacao>();
 	public ArrayList<Postagem> lista_postagens_curtidas = new ArrayList<Postagem>();
 	public ArrayList<Postagem> lista_postagens_feitas = new ArrayList<Postagem>();
+	
+	
+	
+	public void Pesquisar_no_Facebook(String termo_procurado, Facebook_Database face_bd){
+		
+		face_bd.Pesquisar_no_Facebook(termo_procurado);
+		
+	}
 	
 	
 	public void Curtir_Postagem(Usuario user, Postagem postagem){

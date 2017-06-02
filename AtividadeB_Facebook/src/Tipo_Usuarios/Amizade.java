@@ -10,6 +10,12 @@ public class Amizade {
 	
 	public Usuario usuario;
 	
+	String[] acoes_com_amigos_perfil =
+		{"Receber notificações", "Sugira amigos...", "Desfazer amizade"};
+	
+	String[] tipos_de_amigos =
+		{"Melhores Amigos", "Conhecidos", "Adicionar a outra lista..."};
+	
 	String status;
 	String data;
 	String classificacao;
