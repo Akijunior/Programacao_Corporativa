@@ -12,19 +12,23 @@ public class Testes_Gerais {
 	
 	public static void main(String[] args) {
 		
-		Facebook_Database face_bd = new Facebook_Database();
+		Usuario user = new Usuario();
+		Usuario user2 = new Usuario();
 		
-		Empresa empresa = new Empresa();
-		Perfil_Empresa perfil = new Perfil_Empresa("Supermercon", "Comércio", "Eu");
-		empresa.perfil = perfil;
-		face_bd.Adicionar_Empresa(empresa);
-		empresa.Montar_Propaganda("A chave para um tempo melhor gasto!", 
-				"Anúncio", "Em breve, site", 2.55, face_bd);
+		Perfil_Usuario pu = new Perfil_Usuario("Ao", "Hikari", "32", "25", "M");
+		user.perfil = pu;
+		Perfil_Usuario pu2 = new Perfil_Usuario("Ano", "Hana", "23", "25", "F");
+		user2.perfil = pu2;
 		
-		System.out.println("Valor atual no banco do Face: " + face_bd.getBanco_financeiro());
-		face_bd.Pesquisar_no_Facebook("mer");
-		face_bd.Pesquisar_no_Facebook("em");
+		Amizade novo_amigo = new Amizade();
+		novo_amigo.usuario = user2;
 		
+		user.Solicitar_Amizade(novo_amigo);
+		System.out.println(user.lista_amigos.get(0).usuario.perfil.getNome());
+		
+		user.Desfazer_Amizade(novo_amigo);
+		//System.out.println(user.lista_amigos.get(0).usuario.perfil.getNome());
+		System.out.println("O usuario atualmente nao conta com nenhum amigo...");
 		
 	}
 }

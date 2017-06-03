@@ -21,7 +21,15 @@ public class Amizade {
 	String classificacao;
 	
 	ArrayList<Usuario> lista_usuarios = new ArrayList<Usuario>();
-
+	
+	
+	public void Remover_Amizade(Usuario user) {
+		
+		for(int i = 0; i < lista_usuarios.size(); i++){
+			if(lista_usuarios.get(i).equals(user))
+				lista_usuarios.remove(lista_usuarios.get(i)); 
+			}
+		}
 	
 	public int Recebeu_Solicitacao(Usuario user) {
 		

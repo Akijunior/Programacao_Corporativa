@@ -9,6 +9,7 @@ public class Postagem {
 	
 	public String tipo;
 	public String conteudo;
+	private Usuario criador_da_postagem;
 	
 	public ArrayList<Usuario> lista_curtidores = new ArrayList<Usuario>();
 	public ArrayList<Comentario> lista_comentarios = new ArrayList<Comentario>();
@@ -35,6 +36,11 @@ public class Postagem {
 	public void Adicionar_Curtidor(Usuario user) {
 			
 			lista_curtidores.add(user);
+			String mensagem = 
+					user.perfil.getNome() + " acaba de curtir sua postagem sobre " 
+					+ this.tipo + ".";
+			criador_da_postagem.lista_notificacoes.add(mensagem);
+			
 		}
 	
 	
