@@ -22,8 +22,35 @@ public class Usuario {
 	public ArrayList<Postagem> lista_postagens_curtidas = new ArrayList<Postagem>();
 	public ArrayList<Postagem> lista_postagens_feitas = new ArrayList<Postagem>();
 	public ArrayList<String> lista_notificacoes = new ArrayList<String>();
+	public ArrayList<String> pagina_inicial = new ArrayList<String>();
 	
 	
+	
+	public void Carregar_Pagina_Main(){
+		
+		for(Amizade amigo : lista_amigos){
+			pagina_inicial.addAll(amigo.usuario.lista_notificacoes);
+		}
+		System.out.println(pagina_inicial);
+	}
+	
+	
+	public void Nova_Postagem(String tipo, String conteudo){
+		
+		Postagem postagem = new Postagem(tipo, conteudo);
+		
+	}
+	
+	public void Sugestoes_Amizade(){
+		
+		System.out.println("Pessoas que você talvez conheça: \n");
+		for(Amizade amigo : lista_amigos){
+			for(int i = 0; i < amigo.lista_usuarios.size(); i++){
+				System.out.println(amigo.lista_usuarios.get(i).perfil.getNome() +
+						" " + amigo.lista_usuarios.get(i).perfil.getSobrenome() + "\n");
+			}
+		}
+	}
 	
 	public void Pesquisar_no_Facebook(String termo_procurado, Facebook_Database face_bd){
 		
@@ -74,7 +101,7 @@ public class Usuario {
 	
 	public void Desfazer_Amizade(Amizade amigo) {
 		
-		int resposta_solicitacao = JOptionPane.showConfirmDialog(null, "Deseja realmente remover"
+		int resposta_solicitacao = JOptionPane.showConfirmDialog(null, "Deseja realmente remover "
 				+ amigo.usuario.perfil.getNome() + " da sua lista de amigos?");
 		
 		if(resposta_solicitacao == 0){
@@ -87,7 +114,7 @@ public class Usuario {
 					+ " acaba de ser desfeita.";
 					System.out.println(mensagem);
 					lista_notificacoes.add(mensagem);
-					
+					break;
 				}
 			}	
 		}

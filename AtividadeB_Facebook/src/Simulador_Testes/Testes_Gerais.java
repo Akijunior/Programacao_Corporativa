@@ -27,7 +27,8 @@ public class Testes_Gerais {
 		System.out.println(user.lista_amigos.get(0).usuario.perfil.getNome());
 		
 		user.Desfazer_Amizade(novo_amigo);
-		//System.out.println(user.lista_amigos.get(0).usuario.perfil.getNome());
+		if(user.lista_amigos.size() > 0)
+			System.out.println(user.lista_amigos.get(0).usuario.perfil.getNome());
 		System.out.println("O usuario atualmente nao conta com nenhum amigo...");
 		
 	}

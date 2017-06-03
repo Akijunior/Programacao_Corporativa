@@ -28,6 +28,7 @@ public class Amizade {
 		for(int i = 0; i < lista_usuarios.size(); i++){
 			if(lista_usuarios.get(i).equals(user))
 				lista_usuarios.remove(lista_usuarios.get(i)); 
+				break;
 			}
 		}
 	
